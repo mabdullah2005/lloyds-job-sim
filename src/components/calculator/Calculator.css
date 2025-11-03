@@ -11,12 +11,56 @@ main button{
     height: 5vh;
 }
 
+.calculator-next-button{
+    clip-path: circle(35.0% at 50% 50%);
+    height: 20vh;
+    width: 20vw;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+
+    justify-items: center;
+    align-items: center;
+}
+
+.calculator-next-button img{
+    height: 10vh;
+    width: 10vw;
+}
+
+@keyframes nextButton{
+    0%{
+
+    }
+    100%{
+        transform: rotate(180deg);
+        scale: 2;
+        background-color: #11b67a;
+    }
+}
+
+.calculator-next-button img:hover{
+    animation-name: nextButton;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+
 .calculator-questions, .calculator-input{
     height: 90%;
     align-content: center;
-    margin: 1vw;
+    margin: 3vw;
     padding: 10px;
     
     border-radius: 20px;
     box-shadow: 0px 0px 1px 1px lightgrey;
+}
+
+.calculator-questions{
+    margin-right: 0;
+}
+
+.calculator-input{
+    margin-left: 0;
 }

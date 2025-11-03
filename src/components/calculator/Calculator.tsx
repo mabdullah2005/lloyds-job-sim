@@ -1,4 +1,5 @@
 import "./Calculator.css"
+import leftArrow from "../../assets/left-arrow.svg"
 
 function Calculator(){
     return(
@@ -8,7 +9,7 @@ function Calculator(){
                 <p>Any complex terminology can be explained when the user clicks an interactive question mark</p>
             </div>
 
-            <button className="calculator-next-button">Next</button>
+            <button className="calculator-next-button"><img src={leftArrow}></img></button>
 
             <div className="calculator-input">
                 <h1>This is The Mortgage Calculator Itself.</h1>
