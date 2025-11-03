@@ -1,0 +1,15 @@
+footer{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+
+    border: solid black;
+    background-color: black;
+    color: white;
+    font-family: 'Merriweather', serif;
+}
+
+footer ul{
+    margin: 0;
+    list-style: none;
+}
