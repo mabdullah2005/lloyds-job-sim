@@ -1,3 +1,4 @@
+import "./App.css"
 import Header from "./components/header/Header"
 import Calculator from "./components/calculator/Calculator"
 import Footer from "./components/footer/Footer"

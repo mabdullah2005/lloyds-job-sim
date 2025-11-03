@@ -1,4 +1,3 @@
-import "./Calculator.css"
 import leftArrow from "../../assets/left-arrow.svg"
 
 function Calculator(){

@@ -1,4 +1,3 @@
-import "./Header.css"
 import logo from "../../assets/lloydsbank-icon.svg";
 
 
