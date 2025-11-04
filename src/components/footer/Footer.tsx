@@ -1,5 +1,3 @@
-import "./Footer.css"
-
 function Products(){
     return(
         <ul className="footer-products">
@@ -48,12 +46,12 @@ function About(){
 
 function Footer(){
     return(
-        <footer>
+        <>
             <Products></Products>
             <Help></Help>
             <Legal></Legal>
             <About></About>
-        </footer>
+        </>
     )
 }
 

@@ -6,9 +6,15 @@ import Footer from "./components/footer/Footer"
 function App(){
   return(
     <body>
-      <Header></Header>
-      <Calculator></Calculator>
-      <Footer></Footer>
+      <header>
+        <Header></Header>
+      </header>
+      <main>
+        <Calculator></Calculator>
+      </main>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </body>
   )
 }

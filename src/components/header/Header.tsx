@@ -31,13 +31,13 @@ function Navigation(){
 
 function Header(){
     return(
-        <header>
-            <div className="upperHeader">
+        <>
+            <div className="header">
                 <Logo></Logo>
                 <Login></Login>
             </div>
             <Navigation></Navigation>
-        </header>
+        </>
     )
 }
 

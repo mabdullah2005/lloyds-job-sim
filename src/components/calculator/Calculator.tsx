@@ -2,7 +2,7 @@ import leftArrow from "../../assets/left-arrow.svg"
 
 function Calculator(){
     return(
-        <main>
+        <>
             <div className="calculator-questions">
                 <h1>This is where the Mortgage Calculator's Questions will be.</h1>
                 <p>Any complex terminology can be explained when the user clicks an interactive question mark</p>
@@ -15,7 +15,7 @@ function Calculator(){
                 <p>It will not be accessible until the user has submitted the questions section first</p>
                 <button className="calculator-calculate-button">Calculate</button>
             </div>
-        </main>
+        </>
     )
 }
 
