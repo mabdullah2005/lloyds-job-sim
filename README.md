@@ -1,5 +1,7 @@
 Name: Forage Job Simulation (Mortgage Calculator)
+
 Author: Muhammad Abdullah
+
 Technologies Used:
     - React
     - TypeScript
