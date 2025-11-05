@@ -13,6 +13,10 @@ body{
     padding: 0%;
 }
 
+input, select{
+    text-align: center;
+}
+
 img{
     display: block;
     max-width: 100%;
@@ -136,14 +140,29 @@ main button{
 
     }
     100%{
-        transform: rotate(180deg);
-        scale: 2;
+        transform: rotate(180deg) scale(2);
         background-color: #11b67a;
     }
 }
 
-.calculator-next-button img:hover{
+@keyframes nextButtonReversed{
+    0%{
+        transform: rotate(180deg) scale(2);
+        background-color: #11b67a;
+    }
+    100%{
+
+    }
+}
+
+.calculator-next-button img.active{
     animation-name: nextButton;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.calculator-next-button img.inactive{
+    animation-name: nextButtonReversed;
     animation-duration: 2s;
     animation-fill-mode: forwards;
 }
@@ -159,6 +178,13 @@ main button{
     box-shadow: 0px 0px 1px 1px lightgrey;
 }
 
+.calculator-questions form, .calculator-input form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
 .calculator-questions{
     margin-right: 0;
     margin-left: 3vw;
@@ -167,6 +193,45 @@ main button{
 .calculator-input{
     margin-left: 0;
     margin-right: 3vw;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.tooltip-icon {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 8px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.infoIcon{
+    height: 1rem;
+    width: 1rem;
 }
 
 footer{
