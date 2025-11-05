@@ -15,7 +15,7 @@ The project greatly strengthened my technical ability in TypeScript and HTML/CSS
 
 This was also my first ever experience in using the React Library, resulting in a new found base of knowledge on Components, useStates and useEffects.
 
-Finally, this project is a symbol of the progression I have made with the Git System. I now possess a strong understanding of Git concepts such as the difference between fetch and pull, git flags and general commands.
+The project is also a symbol of the progression I have made with Git. I now possess a strong understanding of Git concepts such as the difference between fetch and pull, git flags and commands.
 
 Disclaimer
 This project is for educational purposes only and is not affiliated with or endorsed by Lloyds Banking Group.
