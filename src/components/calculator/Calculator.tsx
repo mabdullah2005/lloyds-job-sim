@@ -1,6 +1,6 @@
 import leftArrow from "../../assets/left-arrow.svg"
 import infoIcon from "../../assets/infoIcon.svg"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Tooltip({ text }) {
   return (
@@ -13,16 +13,72 @@ function Tooltip({ text }) {
 
 
 function Calculator(){
+    const totalMonths:number = 25*12;
+    const interestRate:number = 1.04;
+    let isQuestionsFilled:boolean = false;
+    let isProposedDealFilled:boolean = false;
+    let isEverythingFilled:boolean = false;
+
+    const [requiredMortgage, setRequiredMortgage] = useState<number>();
+    const [monthly, setMonthly] = useState<number>();
+    const [mortgageDeal, setMortgageDeal] = useState<string>();
+
     const [buyerStatus, setBuyerStatus] = useState("");
     const [employmentStatus, setEmploymentStatus] = useState("");
     const [income, setIncome] = useState("");
     const [dependents, setDependents] = useState("0");
 
-    let isQuestionsFilled:boolean = false;
+    const [borrowLimit, setBorrowLimit] = useState<number>();
 
+    const [propertyValue, setPropertyValue] = useState("");
+    const [deposit, setDeposit] = useState("");
+
+    
     if(buyerStatus != "" && employmentStatus != "" && income != ""){
         isQuestionsFilled = true;
     }
+
+    if(propertyValue != "" && deposit != ""){
+        isProposedDealFilled = true
+    }
+
+    if(isQuestionsFilled && isProposedDealFilled){
+            isEverythingFilled = true;
+    }
+
+    useEffect (()=>{
+        if(employmentStatus=="Employed" && isQuestionsFilled){
+            const grossIncome = Number(income) * (1 - (Number(dependents)*0.05));
+            const limit: number = grossIncome * 5;
+            setBorrowLimit(limit);
+        }else{
+            setBorrowLimit(0);
+        }
+
+        if(isProposedDealFilled){
+            if(deposit < propertyValue){
+                setRequiredMortgage(Number(propertyValue) - Number(deposit));
+            }
+        }
+
+
+        if(isEverythingFilled && requiredMortgage < borrowLimit){
+            setMonthly((requiredMortgage/totalMonths)*interestRate);
+            setMortgageDeal(`Your Mortgage Deal: £${monthly}/month for 25 Years`);
+        }
+    }, [
+        income,
+        dependents,
+        deposit,
+        propertyValue,
+        isProposedDealFilled,
+        requiredMortgage,
+        isEverythingFilled,
+        borrowLimit,
+        monthly,
+        totalMonths,
+        interestRate,
+    ]);
 
     return(
         <>
@@ -105,9 +161,37 @@ function Calculator(){
             </img></button>
 
             <div className="calculator-input">
-                <h1>This is The Mortgage Calculator Itself.</h1>
-                <p>It will not be accessible until the user has submitted the questions section first</p>
-                <button className="calculator-calculate-button">Calculate</button>
+                <h1>Mortgage Calculator</h1>
+                <p>You can borrow up to £{borrowLimit}</p>
+
+                <form className="calculator-input-form">
+                    <label for="property-value">
+                        What is the Property Value?
+                        <Tooltip text="How much does the house cost?"></Tooltip>
+                    </label>
+                    <input
+                        type="number"
+                        id="property-value"
+                        name="property-value"
+                        value={ propertyValue }
+                        onChange={(e) => setPropertyValue(e.target.value)}
+                    >
+                    </input>
+
+                    <label for="deposit">
+                        What is the Deposit?
+                        <Tooltip text="How much of your own money are you putting down"></Tooltip>
+                    </label>
+                    <input
+                        type="number"
+                        id="deposit"
+                        name="deposit"
+                        value={ deposit }
+                        onChange={(e) => setDeposit(e.target.value)}
+                    >
+                    </input>
+                </form>
+                <h1>{mortgageDeal}</h1>
             </div>
         </>
     )

@@ -257,7 +257,7 @@ footer ul{
 @media (max-width: 768px){
     main{
         flex-direction: column;
-        height: 800px;
+        height: 900px;
     }
 
     .navigation{
